@@ -34,7 +34,7 @@ app.get("/todos", async(req, res) => {
         res.json(allTodos.rows);
         console.log(allTodos.rows);
     } catch (err) {
-        console.error(err       .message);x
+        console.error(err.message);x
     }
 })
 
