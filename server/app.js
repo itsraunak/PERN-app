@@ -2,6 +2,7 @@ const express = require ("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
+const { request } = require("express");
 
 //Middlewere
 
@@ -33,7 +34,7 @@ app.get("/todos", async(req, res) => {
         res.json(allTodos.rows);
         console.log(allTodos.rows);
     } catch (err) {
-        console.error(err.message);x
+        console.error(err       .message);x
     }
 })
 
@@ -52,6 +53,16 @@ app.get("/todos/:id", async(req, res) => {
 })
 
 //update a todo
+
+app.put("/todos/:id", async(req, res) => {
+    try {
+        const { id } = req.params;
+        const { description } = request.body;
+        const updateTodo = 
+    } catch (err) {
+        console.error(err);
+    }
+})
 
 //delete a todo
 
