@@ -21,7 +21,7 @@ app.post("/todos", async (req, res) => {
         );
         res.json(newTodo.rows[0]);
     } catch (err) {
-        console.log(err.message);
+        console.error(err.message);
     }
 });
 
@@ -33,7 +33,7 @@ app.get("/todos", async (req, res) => {
         res.json(allTodos.rows);
         console.log(allTodos.rows);
     } catch (err) {
-        console.log(err.message);
+        console.error(err.message);
     }
 });
 
@@ -45,7 +45,7 @@ app.get("/todos/:id", async (req, res) =>{
         const todo = await pool.query("SELECT * FROM todo WHERE todo_id = $1", [id]);
         res.json(todo.rows);
     } catch (err){
-        console.log(err.message);
+        console.error(err.message);
     }
 });
 
@@ -59,7 +59,7 @@ app.put("/todos/:id", async (req, res) => {
             [description, id]);
         res.json("Todo is Updated");
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 });
 
@@ -71,7 +71,7 @@ app.delete("/todos/:id", async (req, res) => {
         const deleteTodo = await pool.query("DELETE FROM todo WHERE todo_id = $1", [id]);
         res.json("Todo was deleted!");
     } catch (err) {
-        console.log(err.message);
+        console.error(err.message);
     }
 });
 
